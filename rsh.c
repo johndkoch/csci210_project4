@@ -31,12 +31,16 @@ void sendmsg (char *user, char *target, char *msg) {
 	// Send a request to the server to send the message (msg) to the target user (target)
 	// by creating the message structure and writing it to server's FIFO
 
+	message req;
+	strcpy(req.source, user);
+	strcpy(req.target, target);
+	strcpy(req.msg, msg);
 
+	int server = open("serverFIFO", O_WRONLY);
 
+	write(server, &req, sizeof(req));
 
-
-
-
+	close(server);
 
 }
 
@@ -49,10 +53,11 @@ void* messageListener(void *arg) {
 	// Incoming message from [source]: [message]
 	// put an end of line at the end of the message
 
+	while (1) {
 
-
-
-
+		
+		
+	}
 
 	pthread_exit((void*)0);
 }
