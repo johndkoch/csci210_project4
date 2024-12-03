@@ -32,7 +32,7 @@ int main() {
 		// TODO:
 		// read requests from serverFIFO
 
-
+		
 
 
 
@@ -43,7 +43,8 @@ int main() {
 		// open target FIFO and write the whole message struct to the target FIFO
 		// close target FIFO after writing the message
 
-
+		char targetFIFO[50];
+		snprintf(targetFIFO, sizeof(targetFIFO), "%s", req.target); 
 
 
 
