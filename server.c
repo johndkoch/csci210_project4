@@ -46,9 +46,11 @@ int main() {
 		char targetFIFO[50];
 		snprintf(targetFIFO, sizeof(targetFIFO), "%s", req.target); 
 
+		target = open(targetFIFO, O_WRONLY);
 
+		written = write(target, &req, sizeof(req));
 
-
+		close(target);
 
 	}
 	close(server);
