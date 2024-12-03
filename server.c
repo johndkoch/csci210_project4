@@ -32,10 +32,11 @@ int main() {
 		// TODO:
 		// read requests from serverFIFO
 
-		
-
-
-
+		int charsRead = read(server, &req, sizeof(req));
+		if (charsRead == 0) {
+			printf("No requests remaining. Exiting.\n");
+			break;
+		}
 
 		printf("Received a request from %s to send the message %s to %s.\n",req.source,req.msg,req.target);
 
@@ -48,7 +49,7 @@ int main() {
 
 		target = open(targetFIFO, O_WRONLY);
 
-		written = write(target, &req, sizeof(req));
+		charsWritten = write(target, &req, sizeof(req));
 
 		close(target);
 
