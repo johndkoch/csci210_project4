@@ -89,27 +89,26 @@ int isAllowed(const char*cmd) {
 }
 
 int main(int argc, char **argv) {
-    pid_t pid;
-    char **cargv; 
-    char *path;
-    char line[256];
-    int status;
-    posix_spawnattr_t attr;
-
-    if (argc!=2) {
+	pid_t pid;
+	char **cargv; 
+	char *path;
+	char line[256];
+	int status;
+	posix_spawnattr_t attr;
+	
+	if (argc!=2) {
 	printf("Usage: ./rsh <username>\n");
 	exit(1);
-    }
-    signal(SIGINT,terminate);
+	}
+	signal(SIGINT,terminate);
+	
+	strcpy(uName,argv[1]);
+	
+	// TODO:
+	// create the message listener thread
 
-    strcpy(uName,argv[1]);
-
-    // TODO:
-    // create the message listener thread
-
-
-
-
+	pthread_t listenerThread;
+	pthread_create(&listenerThread, NULL, messageListener, NULL) != 0);
 
     while (1) {
 
