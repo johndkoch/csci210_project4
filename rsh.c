@@ -54,7 +54,7 @@ void* messageListener(void *arg) {
 	// put an end of line at the end of the message
 
 	char userFIFO[50];
-	snprintf(userFIFO, sizeof(userFIFO, "%s", uName);
+	snprintf(userFIFO, sizeof(userFIFO), "%s", uName);
 	
 	int user = open(userFIFO, O_RDONLY);
 
