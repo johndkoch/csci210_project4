@@ -144,14 +144,14 @@ int main(int argc, char **argv) {
 		// if no message is specified, you should print the followingA
  		// printf("sendmsg: you have to enter a message\n");
 
-
-
-
-
-
-
-
-
+		char* target = strtok(NULL, " ");
+		if (!target) {
+			printf("sendmsg: you have to specify target user\n");
+		}
+		char* message = strtok(NULL, " ");
+		if (!message) {
+			printf("sendmsg: you have to enter a message\n");
+		}
 
 		continue;
 	}
