@@ -66,11 +66,10 @@ void* messageListener(void *arg) {
 
 		if (charsRead > 0) {
 			printf("Incoming message from %s: %s\n", req.source, req.msg);
-		} else if (charsRead == 0) {
+		} 
+		else if (charsRead == 0) {
 			break;
 		}
-
-		printf("IM STUCK!!\n");
 		
 	}
 
