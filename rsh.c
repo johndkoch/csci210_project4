@@ -69,6 +69,8 @@ void* messageListener(void *arg) {
 		} else if (charsRead == 0) {
 			break;
 		}
+
+		printf("IM STUCK!!\n");
 		
 	}
 
