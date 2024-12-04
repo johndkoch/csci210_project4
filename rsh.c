@@ -153,6 +153,8 @@ int main(int argc, char **argv) {
 			printf("sendmsg: you have to enter a message\n");
 		}
 
+		sendmsg(uName, target, message);
+
 		continue;
 	}
 
