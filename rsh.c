@@ -146,10 +146,12 @@ int main(int argc, char **argv) {
 		char* target = strtok(NULL, " ");
 		if (!target) {
 			printf("sendmsg: you have to specify target user\n");
+			continue;
 		}
 		char* message = strtok(NULL, " ");
 		if (!message) {
 			printf("sendmsg: you have to enter a message\n");
+			continue;
 		}
 
 		sendmsg(uName, target, message);
