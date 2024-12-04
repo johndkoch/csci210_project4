@@ -108,7 +108,7 @@ int main(int argc, char **argv) {
 	// create the message listener thread
 
 	pthread_t listenerThread;
-	pthread_create(&listenerThread, NULL, messageListener, NULL) != 0);
+	pthread_create(&listenerThread, NULL, messageListener, NULL);
 
     while (1) {
 
