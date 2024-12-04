@@ -49,7 +49,7 @@ int main() {
 
 		target = open(targetFIFO, O_WRONLY);
 
-		charsWritten = write(target, &req, sizeof(req));
+		int charsWritten = write(target, &req, sizeof(req));
 
 		close(target);
 
