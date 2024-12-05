@@ -33,25 +33,28 @@ int main() {
 		// read requests from serverFIFO
 
 		int charsRead = read(server, &req, sizeof(req));
-		if (charsRead == 0) {
-			printf("No requests remaining. Exiting.\n");
-			break;
+		// if (charsRead == 0) {
+		// 	printf("No requests remaining. Exiting.\n");
+		// 	break;
+		// }
+		if (charsRead > 0) {
+			
+			printf("Received a request from %s to send the message %s to %s.\n",req.source,req.msg,req.target);
+	
+			// TODO:
+			// open target FIFO and write the whole message struct to the target FIFO
+			// close target FIFO after writing the message
+	
+			char targetFIFO[50];
+			snprintf(targetFIFO, sizeof(targetFIFO), "%s", req.target); 
+	
+			target = open(targetFIFO, O_WRONLY);
+	
+			write(target, &req, sizeof(req));
+	
+			close(target);
+
 		}
-
-		printf("Received a request from %s to send the message %s to %s.\n",req.source,req.msg,req.target);
-
-		// TODO:
-		// open target FIFO and write the whole message struct to the target FIFO
-		// close target FIFO after writing the message
-
-		char targetFIFO[50];
-		snprintf(targetFIFO, sizeof(targetFIFO), "%s", req.target); 
-
-		target = open(targetFIFO, O_WRONLY);
-
-		int charsWritten = write(target, &req, sizeof(req));
-
-		close(target);
 
 	}
 	close(server);
