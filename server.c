@@ -33,10 +33,7 @@ int main() {
 		// read requests from serverFIFO
 
 		int charsRead = read(server, &req, sizeof(req));
-		// if (charsRead == 0) {
-		// 	printf("No requests remaining. Exiting.\n");
-		// 	break;
-		// }
+		
 		if (charsRead > 0) {
 			
 			printf("Received a request from %s to send the message %s to %s.\n",req.source,req.msg,req.target);
