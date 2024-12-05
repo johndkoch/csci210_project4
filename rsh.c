@@ -67,9 +67,9 @@ void* messageListener(void *arg) {
 		if (charsRead > 0) {
 			printf("Incoming message from %s: %s\n", req.source, req.msg);
 		} 
-		else if (charsRead == 0) {
-			break;
-		}
+		// else if (charsRead == 0) {
+		// 	break;
+		// }
 		
 	}
 
@@ -149,7 +149,7 @@ int main(int argc, char **argv) {
 			printf("sendmsg: you have to specify target user\n");
 			continue;
 		}
-		char* message = strtok(NULL, " ");
+		char* message = strtok(NULL, "");
 		if (!message) {
 			printf("sendmsg: you have to enter a message\n");
 			continue;
